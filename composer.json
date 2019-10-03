@@ -1,0 +1,37 @@
+{
+    "minimum-stability": "stable",
+    "require": {
+        "yiisoft/yii2": "2.0.*",
+        "yiisoft/yii2-bootstrap": "*",
+        "kartik-v/yii2-widget-select2": "*",
+        "jamband/yii2-schemadump": "*"
+    },
+    "config": {
+        "process-timeout": 1800,
+        "fxp-asset": {
+            "enabled": false
+        }
+    },
+    "extra": {
+        "yii\\composer\\Installer::postCreateProject": {
+            "setPermission": [
+                {
+                    "runtime": "0777",
+                    "web/assets": "0777",
+                    "yii": "0755"
+                }
+            ]
+        },
+        "yii\\composer\\Installer::postInstall": {
+            "generateCookieValidationKey": [
+                "config/web.php"
+            ]
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ]
+}
